@@ -1,0 +1,98 @@
+<scene version="2.1.0">
+
+<!-- Defaults, these can be set via the command line: -Darg=value -->
+
+	<default name="spp" value="1024"/>
+	<default name="resx" value="512"/>
+	<default name="resy" value="512"/>
+
+<!-- Camera and Rendering Parameters -->
+
+	<integrator type="path">
+		<integer name="max_depth" value="1"/>
+	</integrator>
+	<sensor type="perspective">
+		<string name="fov_axis" value="x"/>
+		<float name="fov" value="65.470450"/>
+		<float name="near_clip" value="0.100000"/>
+		<float name="far_clip" value="100.000000"/>
+		<transform name="to_world">
+			<rotate x="1" angle="179.999991348578"/>
+			<rotate y="1" angle="5.008955316753333e-06"/>
+			<rotate z="1" angle="180.00000500895632"/>
+			<translate value="-0.180000 -0.280000 0.749927"/>
+		</transform>
+		<sampler type="independent">
+			<integer name="sample_count" value="$spp"/>
+		</sampler>
+		<film type="hdrfilm">
+			<integer name="width" value="$resx"/>
+			<integer name="height" value="$resy"/>
+		</film>
+	</sensor>
+
+<!-- Materials -->
+
+	<bsdf type="diffuse" id="mat-box3">
+		<rgb value="1.000000 0.000000 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-box1.002">
+		<rgb value="1.000000 0.000000 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-box2">
+		<rgb value="1.000000 0.000000 0.300000" name="reflectance"/>
+	</bsdf>
+	<bsdf type="diffuse" id="mat-Default OBJ.002">
+		<rgb value="1.000000 0.000000 0.300000" name="reflectance"/>
+	</bsdf>
+  <bsdf type="ptplastic" id="test-mat">
+		<rgb value="1.000000 0.000000 0.300000" name="diffuse_reflectance"/>
+		<rgb value="0.000000 0.300000 0.100000" name="specular_reflectance"/>
+		<float name="a_diff" value="0.5"/>
+		<float name="b_diff" value="0.5"/>
+		<float name="c_diff" value="0.5"/>
+
+		<float name="a_spec" value="0.5"/>
+		<float name="b_spec" value="0.5"/>
+		<float name="c_spec" value="0.5"/>
+
+		<float name="render_at" value="0.1"/>
+		<float name="speed_of_light" value="10000."/>
+	</bsdf>
+
+<!-- Emitters -->
+
+	<emitter type="point">
+		<point name="position" x="-0.18000000715255737" y="-0.2800000011920929" z="0.749927282333374"/>
+		<rgb value="1.591549 1.591549 1.591549" name="intensity"/>
+	</emitter>
+
+<!-- Shapes -->
+
+  <!--
+	<shape type="ply">
+		<string name="filename" value="meshes\Cube.001.ply"/>
+		<ref id="mat-box3" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\Cube.002.ply"/>
+		<ref id="mat-box1.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\Cube.003.ply"/>
+		<ref id="mat-box2" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\nefertiti.001.ply"/>
+		<ref id="mat-Default OBJ.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\Cube.006.ply"/>
+		<ref id="mat-box1.002" name="bsdf"/>
+	</shape>
+	<shape type="ply">
+		<string name="filename" value="meshes\Cube.005.ply"/>
+		<ref id="mat-box1.002" name="bsdf"/>
+	</shape>
+  -->
+</scene>
